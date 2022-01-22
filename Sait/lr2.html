@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
+		<title>Компьютеры</title>
+		<link rel="stylesheet" href="style.css">
+		<meta name="Разработчик сайта" content="Минаев Александр" />
+	</head>	
+	<body>
+	 
+	 <div id="title">
+		 <h1>Компьютеры</h1>
+	 </div> 
+	 
+	 <div id="content">
+		<div id="sections">
+			<h2>Разделы</h2>	
+			<ul>
+				<li><a href="../index.html#">Главная</a></li>
+				<li><a href="./info.html">Информация</a></li>
+				<li><a href="./notebook.html">Ноутбуки</a></li>
+				<li><a href="./netbook.html">Нетбуки</a></li>			
+			</ul>	
+		</div>			 
+		<div id="main">
+			<h2>Задание и его выполнение. ЛР2.</h2>
+			
+			<h3>Часть 1.</h3>
+			
+			<ol><li style="float: left;"></li>Изучить назначение и ключи команды ln. 			<br><code>ln --help</code><br>
+	<br>- создать жесткую ссылку на файл. 			<br><code>ln asminaev/file file</code><br>
+	<br>Просмотреть содержимое файла, используя ссылку. 	<br><code>cat file</code><br>
+	<br>Удалить файл. 						<br><code>rm -i asminaev/file</code><br>
+	<br>Просмотреть содержимое файла. 				<br><code>cat file</code><br>
+	<br>Объяснить результат;					<br><code>При удалении имени удаляется только связь, 
+	<br>							если связей больше нет удаляется весь файл.</code><br>
+	<br>- создать жесткую ссылку на каталог. 			<br><code>ln asminaev/Загрузки Загрузки</code><br>
+	<br>Объяснить результат;					<br><code>не допускается создавать жёсткие ссылки на каталоги</code><br>
+			<br><br>
+			
+			<li style="float: left;"></li>Выполнить все задания пункта 1, создавая не жесткие, а символьные ссылки.
+								<br><code style="margin-left: 0px;">ln -s asminaev/file file
+								<br>cat file
+								<br>rm -i asminaev/file
+								<br>Если остались символические ссылки, 
+								доступ к файлу по ним будет невозможен.
+								<br>ln -s asminaev/Загрузки Загрузки
+								<br>В отличие от прямых ссылок, символические ссылки 
+								можно использовать для создания ссылок на каталоги.
+								</code>
+			<br><br><li style="float: left;"></li>Создать жесткую и символьную ссылки на файл. 		<br><code>ln -s easyfile s_file; ln hardfile h_file 	</code><br>
+								<br>С помощью команды ls просмотреть inod файла и ссылок.   <br><code>ls -l</code><br>
+								<br>Объяснить результат.		<br><code>Символические ссылки имеют собственный тип, обозначенный как l. 
+					Тип файла для s_file - l, т.е. это символическая ссылка, а не обычный файл. 
+					Число, стоящее после group - это размер файла. 
+					Обратите внимание: размеры разные. 
+					Размер файла s_file составляет меньшее кол-во байт. 	
+					Это обусловлено тем, что s_file - всего лишь символическая ссылка, 
+					хранящая путевое имя реально существующего файла,занимающее всего несколько байтов.
+					Индексные дескрипторы двух имен hardfile и h_file файлов совпадают, 	
+					это значит, что они относятся к одному и тому же файлу.</code></ol>
+
+
+					<h3>Часть 2.</h3>
+					
+					<ol><li style="float: left;"></li>Изучите при помощи man опцию -l команды ls. 				<br><code>	man ls</code><br>
+					<br>Просмотрите права каталогов /etc, /bin и домашнего каталога. 			<br><code>ls -ld /etc /bin</code><br>
+					<br>Просмотрите права файлов, содержащиеся в этих каталогов. 			<br><code>ls -l /etc; ls -l /bin</code><br>
+					<br>Выявите тенденции (файлов с какими правами в каких каталогах больше). 		<br><code>в каталоге bin только симв ссылка</code><br>
+					
+					<br><li style="float: left;"></li>Изучите материал, посвящѐнный пользователям и группам пользователей. 		<br><code>man users; man groups</code><br>
+					<br>Изучите руководство по командам chown и chgrp. 					<br><code>man chown; man chgrp</code><br>
+					<br>Выясните, кто является владельцем и к какой группе владельцов принадлежат файлы вашего домашнего каталога, каталогов /etc, /root, /bin и /dev.	
+									<br><code>	ls -l /etc /root /bin /dev</code><br>
+					
+					<br><li style="float: left;"></li>Определите атрибуты файлов /etc/shadow и /etc/passwd 
+	попробуйте вывести на экран содержимое этих файлов. 				<br><code>ls -l /etc/shadow /etc/passwd</code><br>
+					
+					<br><li style="float: left;"></li>Изучите команду chmod. 		<br><code>	man chmod	</code><br>	
+					<br>Создайте в домашнем каталоге любые четыре файла, установите при помощи восмеричных масок 
+	на каждый из них в отдельности следующие права:
+					<br>- для себя все права, для группы и остальных - никаких; 				<br><code>chmod 770 file1</code><br>
+					<br>- для себя чтение и запись, для группы чтение, для остальных - все;		<br><code>	chmod 647 file2</code><br>
+					<br>- для себя исполнение и запись, для группы никаких, для остальных чтение;		<br><code>chmod 304 file3</code><br>
+					<br>- для себя запись, для группы все, для остальных - только запись.		<br><code>	chmod 272 file4</code><br>
+					
+					<br><li style="float: left;"></li>Выполните задание предыдущего пункта, используя в команде chmod только символы прав доступа.	
+							<br><code>chmod u=rwx file1;chmod u=rw g=r o=rwx file2;chmod u=wx o=r file3;chmod u=x g=rwx o=w file4</code><br>
+					
+					<br><li style="float: left;"></li>В домашнем каталоге создайте файл и установите на него права так, 
+	чтобы его можно было только редактировать.						<br><code>chmod 222 file</code><br>
+					
+					<br><li style="float: left;"></li>Скопируйте в свой домашний каталог файл ls из каталога /bin. 			<br><code>	cp -i /bin/ls</code><br>
+					<br>Запретите выполнение этого файла и попробуйте выполнить именно его, а не исходный(!).  	<br><code>chmod 000 ls</code><br>
+					
+					<br><li style="float: left;"></li>Попробуйте зайти в каталог /root, объясните результат и причину.
+					<br><code>cd /root		~ Переносит вас в домашний каталог пользователя root		</code><br>
+					</ol>	
+		</div>
+		
+		<div id="news">
+
+			<h2>Новости</h2>
+					
+			<div id="new">
+				<h3>09.02.11</h3>		
+				<p>Поздравляем всех с новым семестром! Желаем сдать экзамен по "Интернет-
+технологиям" на отлично ...</p>
+			</div>	
+			
+			<div id="new">
+				<h3>18.03.11</h3>		
+				<p>Появился новый ноутбук Lenovo Y550A1-i724G500B-B
+					<a href="./lr1.html" >Подробней…</a></p>
+			</div>
+			
+			<div id="new">
+				<h3>20.05.11</h3>		
+				<p>Желаем всем студентам 4 курса ОТИ НИЯУ МИФИ получить ВСЕ зачеты и
+допуски к сессии <a href="./lr2.html" >Подробней…</a></p>
+			</div>	
+		</div>
+	</div>
+
+	<div id="footer" style="position: relative;">
+		<p>Сайт изготовлен администратором сайта 2011.</p>
+   	<p>По вопросам работы сайта обращайтесь по e-mail: <a href="" >comp@compic.ru</a></p>
+	</div>		 
+	 
+	</body>
+</html>

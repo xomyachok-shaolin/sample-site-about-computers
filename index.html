@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
+		<title>Компьютеры</title>
+		<link rel="stylesheet" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+		<script>
+						function load_reg_form() {
+							$.ajax({
+								type: "GET",
+								url: "registration.php",
+								success: function(data){
+									$("#main").html(data);
+								}
+							});
+						};
+						
+						function load_main_form() {
+							$.ajax({
+								type: "GET",
+								url: "main.php",
+								success: function(data){
+									$("#main").html(data);
+								}
+							});
+						};
+						
+						$(document).ready(function(){		
+	
+							$('#registrate').submit(function(){
+		
+								var values = $(this).serialize();
+				
+								console.log(values);	
+			
+								$.ajax({
+									type: 'POST',
+									url: "auth.php",
+									data: values,
+									success: function(html){
+										$("#main").html(html);
+									}
+								});
+								return false;
+							});
+						});
+		</script> 
+		<meta name="Разработчик сайта" content="Минаев Александр" />
+	</head>	
+	<body>
+	 
+	 <div id="title">
+		 <h1>Компьютеры</h1>
+	 </div> 
+	 
+	 <div id="content">
+		<div id="sections">
+			<h2>Разделы</h2>	
+			<ul>
+				<li><a href="./index.html">Главная</a></li>
+				<li><a href="./Sait/info.html">Информация</a></li>
+				<li><a href="./Sait/notebook.html">Ноутбуки</a></li>
+				<li><a href="./Sait/netbook.html">Нетбуки</a></li>			
+			</ul>
+			
+			<form method="POST" id="registrate">
+				<h3>Почта</h3><hr>
+				<input width="90%" type="text" name="mail" placeholder="Ваш email" required maxLength="30"/>		
+				<input width="90%" type="password" name="passwd" placeholder="Пароль" required maxLength="30"/><hr>
+				<input type="submit" name="page" value="ВОЙТИ" style="background-color: Transparent;
+    background-repeat:no-repeat; border-width:3px; border-color: #293499; margin: 10px 12px; margin-bottom: 10px; 
+    color: #551a8b; font-weight: bold;"/>
+    			<p style="margin-left: 10px; margin-right: 10px; margin-top:0; text-align: center;">
+    				<a onclick="load_reg_form()" id="link_reg" >Регистрация на почте</a> 				
+    			</p>	
+			</form>	
+		</div>		 
+		<div id="main">
+			<h2>Добрый день!</h2>	
+			<p><img class="picture" src="image/prog.jpg" alt="">На данном сайте Вы сможете посмотреть или выбрать
+компьютер, ноутбук, нетбук, а также узнать последние новости компьютерного мира.<br><br>Администратор</p>	
+		</div>
+		<div id="news">
+
+			<h2>Новости</h2>
+					
+			<div id="new">
+				<h3>09.02.11</h3>		
+				<p>Поздравляем всех с новым семестром! Желаем сдать экзамен по "Интернет-
+технологиям" на отлично ...</p>
+			</div>	
+			
+			<div id="new">
+				<h3>18.03.11</h3>		
+				<p>Появился новый ноутбук Lenovo Y550A1-i724G500B-B
+					<a href="./Sait/lr1.html" >Подробней…</a></p>
+			</div>
+			
+			<div id="new">
+				<h3>20.05.11</h3>		
+				<p>Желаем всем студентам 4 курса ОТИ НИЯУ МИФИ получить ВСЕ зачеты и
+допуски к сессии <a href="./Sait/lr2.html" >Подробней…</a></p>
+			</div>	
+		</div>
+	</div>
+
+	<div id="footer">
+		<p>Сайт изготовлен администратором сайта 2011.</p>
+   	<p>По вопросам работы сайта обращайтесь по e-mail: <a href="" >comp@compic.ru</a></p>
+	</div>	  
+	</body>
+	
+</html>

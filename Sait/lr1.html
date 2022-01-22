@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
+		<title>Компьютеры</title>
+		<link rel="stylesheet" href="style.css">
+		<meta name="Разработчик сайта" content="Минаев Александр" />
+	</head>	
+	<body>
+	 
+	 <div id="title">
+		 <h1>Компьютеры</h1>
+	 </div> 
+	 
+	 <div id="content">
+		<div id="sections">
+			<h2>Разделы</h2>	
+			<ul>
+				<li><a href="../index.html#">Главная</a></li>
+				<li><a href="./info.html">Информация</a></li>
+				<li><a href="./notebook.html">Ноутбуки</a></li>
+				<li><a href="./netbook.html">Нетбуки</a></li>			
+			</ul>	
+		</div>			 
+		<div id="main">
+			<h2>Задание и его выполнение. ЛР1.</h2>
+			
+			<h3>Часть 1.</h3>
+
+			<ol><li style="float: left;"></li>Определить путевое имя рабочего каталога.<br><code>pwd</code><br>
+			<br>Как обозначается корневой каталог?<br><code>/</code><br>
+			<br>Какое путевое имя получили (относительное или абсолютное)?<br><code>абсолютное</code>
+			<br><br>
+			
+			<li style="float: left;"></li>Создать в начальном каталоге два подкаталога. 	<br><code>mkdir cat1 | mkdir cat2</code><br>
+			<br>Просмотреть содержимое рабочего каталога. 	<br><code>ls</code>	<br>
+			<br>Просмотреть содержимое родительского каталога, не переходя в него. 	<br><code>ls ..</code>
+			<br><br>
+			
+			<li style="float: left;"></li>Перейти в системный каталог. 	<br><code>cd /tmp</code> <br>
+			<br>Просмотреть его содержимое. 	<br><code>ls</code><br>
+			<br>Просмотреть содержимое начального каталога. 	<br><code>ls ..</code><br>
+			<br>Вернуться в начальный каталог. 	<br><code>cd ..</code>
+			<br><br>
+			
+			<li style="float: left;"></li>Удалить созданные ранее подкаталоги.<br><code>rm -i ~/cat1 ~/cat2 -r</code> 
+			<br><br>
+			
+			<li style="float: left;"></li>Получить информацию по командам ls и cd с помощью утилиты man. <br><code>man ls cd</code><br>
+			<br>Изучить структуру man-документа. 	<br><code>man man</code>
+			<br><br>		
+			
+			<li style="float: left;"></li>Получить краткую информацию по командам ls и cd с помощью команды whatis и apropos. <br><code>whatis ls cd; apropos ls cd</code><br>
+			<br>В чем различие?		
+			<br><code>Команда apropos выполняет ту же задачу, что и команда whatis но поиск выполняется по образцу, а не по целым словам. </code>
+			<br></ol>
+			
+			<h3>Часть 2.</h3>
+			<ol> <li style="float: left;"></li>Создайте в домашнем каталоге следующую структуру подкаталогов (существующие
+каталоги не удаляйте!)<br>
+			<br>a. домашний каталог ----|	<code>cd /home</code>
+			<br>1. |-ВашаФамилия-|		<code>mkdir asminaev	</code>
+			<br>a. |-1-|			<code>mkdir 1 4		</code>
+			<br>b. | |-2			<code>mkdir 1/2 1/3</code>
+			<br>c. | |-3
+			<br>d. |
+			<br>e. |-4
+			<br><br>
+
+			<li style="float: left;"></li>Скопируйте файл /etc/group в каталог 1 используя абсолютные имена копируемого
+файла и каталога назначения.				<br><code>cp -i /etc/group /home/1</code>
+			<br><br><li style="float: left;"></li>Скопируйте файл /etc/group в каталог 2 используя абсолютное имя копируемого файла и
+относительное имя каталога назначения.			<br><code>cp -i /etc/group 1/2</code>
+			<br><br><li style="float: left;"></li>Скопируйте файл /etc/group в каталог 3 используя относительные имена копируемого
+файла и каталога назначения.				<br><code>cp -i ../etc/group 1/3</code>
+			<br><br><li style="float: left;"></li>Скопируйте файл /etc/group в каталог 4 используя абсолютные имена копируемого
+файла и относительное имя каталога назначения с использованием специального символа~.	<br><code>cp -i /etc/group ~/4</code>
+			<br><br><li style="float: left;"></li>При помощи одной команды зайдите в каталог 3.	<br><code>cd /home/1/3</code>
+			<br><br><li style="float: left;"></li>Удалите файл group из каталога 4 при помощи одной команды.  	<br><code>ls ../../4/group</code>
+			<br><br><li style="float: left;"></li>Перейдите в свой домашний каталог. Удалите каталоги 1 и 4.	<br><code>cd /home; rm 1 4 -r</code>
+			<br><br><li style="float: left;"></li>Выведите первые и последние 13 строк файла /etc/group.	<br><code>cat /etc/group | head -n 15; cat /etc/group | tail -n 15</code>		
+			</ol>
+		</div>
+		<div id="news">
+
+			<h2>Новости</h2>
+					
+			<div id="new">
+				<h3>09.02.11</h3>		
+				<p>Поздравляем всех с новым семестром! Желаем сдать экзамен по "Интернет-
+технологиям" на отлично ...</p>
+			</div>	
+			
+			<div id="new">
+				<h3>18.03.11</h3>		
+				<p>Появился новый ноутбук Lenovo Y550A1-i724G500B-B
+					<a href="./lr1.html" >Подробней…</a></p>
+			</div>
+			
+			<div id="new">
+				<h3>20.05.11</h3>		
+				<p>Желаем всем студентам 4 курса ОТИ НИЯУ МИФИ получить ВСЕ зачеты и
+допуски к сессии <a href="./lr2.html" >Подробней…</a></p>
+			</div>	
+		</div>
+	</div>
+
+	<div id="footer" style="position: relative;">
+		<p>Сайт изготовлен администратором сайта 2011.</p>
+   	<p>По вопросам работы сайта обращайтесь по e-mail: <a href="" >comp@compic.ru</a></p>
+	</div>		 
+	 
+	</body>
+</html>
